@@ -17,9 +17,9 @@ function Dropdown({ searchOpen }) {
       <StyledArrow searchOpen={searchOpen} />
       <StyledDropdown searchOpen={searchOpen}>
         {!searchResult?.length && <p>No results</p>}
-        {searchResult?.map(({ author, title }) => {
+        {searchResult?.map(({ author, title }, i) => {
           return (
-            <StyledDropdownWrapper>
+            <StyledDropdownWrapper key={i}>
               {!author && !title && <p>No results</p>}
               {!!author?.length > 0 && (
                 <>

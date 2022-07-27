@@ -35,7 +35,7 @@ function Search() {
     // Don't make the same search twice
     if (query && getStoredSearch(query, searches)) {
       searchSuccessHandler(getStoredSearch(query, searches));
-    } else {
+    } else if (query.length > 0) {
       searchRequest(query).then((data) => {
         searchSuccessHandler(data);
         setSearches(Object.assign(searches, { [query.toLowerCase()]: data }));
