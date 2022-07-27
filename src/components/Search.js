@@ -19,7 +19,7 @@ function Search() {
     debounce((searchTerm) => {
       setQuery(searchTerm);
       search(searchTerm);
-    }, 800),
+    }, 400),
     []
   );
   /* eslint-disable react-hooks/exhaustive-deps */

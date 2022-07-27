@@ -12,6 +12,7 @@ import {
 
 function Dropdown({ searchOpen }) {
   const searchResult = useSelector((state) => state.searchResult.data);
+  console.log(searchResult);
   return (
     <>
       <StyledArrow searchOpen={searchOpen} />
@@ -43,15 +44,16 @@ function Dropdown({ searchOpen }) {
                 <>
                   <h4>Titles</h4>
                   <StyledUl>
-                    {title.map(({ search }, i) => (
-                      <StyledLi key={`${i}-${search}`}>
+                    {title.map(({ titleweb, authorweb }, i) => (
+                      <StyledLi key={`${i}-${titleweb}`}>
                         <StyledALink
-                          href={`https://www.amazon.co.uk/s?k=${search}&i=stripbooks&ref=nb_sb_noss`}
+                          href={`https://www.amazon.co.uk/s?k=${titleweb}&i=stripbooks&ref=nb_sb_noss`}
                           target="_blank"
                           rel="noreferrer"
                         >
-                          {search}
+                          {titleweb}
                         </StyledALink>
+                        <p>{authorweb}</p>
                       </StyledLi>
                     ))}
                   </StyledUl>

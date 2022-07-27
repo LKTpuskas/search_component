@@ -2,7 +2,7 @@ const API_URL = "https://reststop.randomhouse.com/resources/";
 
 const APIMethodDetails = {
   // works: { keyParam: "keyword" }, no results
-  titles: { keyParam: "keyword" },
+  titles: { keyParam: "search" },
   authors: { keyParam: "lastName" },
 };
 

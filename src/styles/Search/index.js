@@ -8,11 +8,10 @@ const StyledDropdown = styled.div`
   display: ${(props) => (props.searchOpen ? "flex" : "none")};
   flex-direction: column;
   position: absolute;
-  height: 100px;
+  height: auto;
   border: none;
   z-index: 100;
   background-color: #e3e3e3;
-  height: 320px;
   width: 434px;
   left: -160px;
   top: 60px;
@@ -64,8 +63,9 @@ const StyledUl = styled.ul`
 
 const StyledLi = styled.li`
   display: flex;
-  width: 100%;
+
   padding: 8px 4px;
+  align-items: center;
   &:nth-child(2n + 1) {
     background-color: #f2f2f2;
   }
