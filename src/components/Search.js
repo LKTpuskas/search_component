@@ -1,6 +1,7 @@
 import debounce from "lodash/debounce";
 import React, { useCallback, useState } from "react";
 import { useDispatch } from "react-redux";
+
 import OutsideClick from "../OutsideClick";
 import { setSearchResults } from "../store/actions/searchResultActions";
 import { StyledSearchForm, StyleInput } from "../styles/Search";

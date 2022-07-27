@@ -6,6 +6,20 @@ const APIMethodDetails = {
   authors: { keyParam: "lastName" },
 };
 
+const options = {
+  headers: {
+    Accept: "application/json",
+    "Content-Type": "application/json",
+  },
+  mode: "cors",
+  body: null,
+};
+
+/**
+ * Creates an array with api urls based on APIMethodDetails obj props
+ * @param {string} searchTerm
+ * @returns {Array}
+ */
 function createUrls(searchTerm = "") {
   return Object.keys(APIMethodDetails).reduce((urls, key) => {
     if (APIMethodDetails[key]) {
@@ -17,15 +31,6 @@ function createUrls(searchTerm = "") {
     return urls;
   }, []);
 }
-
-const options = {
-  headers: {
-    Accept: "application/json",
-    "Content-Type": "application/json",
-  },
-  mode: "cors",
-  body: null,
-};
 
 const fetchJson = (url) => fetch(url, options).then((res) => res.json());
 
@@ -39,6 +44,11 @@ export function getStoredSearch(query, searches) {
   return searchData || null;
 }
 
+/**
+ * Fetching multiple urls and returns a promise that resolves to a JavaScript object.
+ * @param {string} searchTerm
+ * @returns {Promise}
+ */
 export function searchRequest(searchTerm) {
   return Promise.all(createUrls(searchTerm).map(fetchJson))
     .then((results) => {
